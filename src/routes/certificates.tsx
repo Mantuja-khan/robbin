@@ -21,10 +21,10 @@ export default function CertificatesPage() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl text-left">
             <p className="eyebrow text-amber-400 font-semibold tracking-widest uppercase mb-3">
-              <TextWordReveal text="Safety & Standards Compliance" baseDelay={0.1} />
+              <TextWordReveal text="SAFETY & STANDARDS COMPLIANCE" baseDelay={0.1} />
             </p>
-            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight">
-              <TextWordReveal text="Certificates & Policies" accentWords={["Policies"]} baseDelay={0.2} stagger={0.08} />
+            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight uppercase">
+              <TextWordReveal text="CERTIFICATES & POLICIES" accentWords={["POLICIES"]} baseDelay={0.2} stagger={0.08} />
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal text="Our strict commitment to FSSAI food safety, ISO 22000 quality standards & environmental hygiene." baseDelay={0.45} stagger={0.04} />
@@ -41,17 +41,17 @@ export default function CertificatesPage() {
         <div className="relative z-10 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll">
             <span className="text-4xl">📜</span>
-            <h3 className="mt-4 font-bold text-xl text-brand">FSSAI Certified</h3>
+            <h3 className="mt-4 font-bold text-xl text-brand uppercase">FSSAI CERTIFIED</h3>
             <p className="mt-2 text-sm text-brand/80">Full compliance with Food Safety and Standards Authority of India.</p>
           </div>
           <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll reveal-delay-150">
             <span className="text-4xl">🛡️</span>
-            <h3 className="mt-4 font-bold text-xl text-brand">ISO 22000 Standards</h3>
+            <h3 className="mt-4 font-bold text-xl text-brand uppercase">ISO 22000 STANDARDS</h3>
             <p className="mt-2 text-sm text-brand/80">Food Safety Management System certified operations.</p>
           </div>
           <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll reveal-delay-300">
             <span className="text-4xl">🌱</span>
-            <h3 className="mt-4 font-bold text-xl text-brand">Hygiene & Environmental Policy</h3>
+            <h3 className="mt-4 font-bold text-xl text-brand uppercase">HYGIENE & ENVIRONMENTAL POLICY</h3>
             <p className="mt-2 text-sm text-brand/80">Eco-friendly waste disposal and zero-contamination policy.</p>
           </div>
         </div>

@@ -22,10 +22,10 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl text-left">
             <p className="eyebrow text-amber-400 font-semibold tracking-widest uppercase mb-3">
-              <TextWordReveal text="24/7 Dedicated Support" baseDelay={0.1} />
+              <TextWordReveal text="24/7 DEDICATED SUPPORT" baseDelay={0.1} />
             </p>
-            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight">
-              <TextWordReveal text="Contact Us" accentWords={["Us"]} baseDelay={0.2} stagger={0.08} />
+            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight uppercase">
+              <TextWordReveal text="CONTACT US" accentWords={["US"]} baseDelay={0.2} stagger={0.08} />
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal text="Get in touch for daily factory meal quotations, cafeteria audits & industrial catering consultations." baseDelay={0.45} stagger={0.04} />
@@ -41,7 +41,7 @@ export default function ContactPage() {
         
         <div className="relative z-10 grid gap-10 md:grid-cols-2">
           <div className="rounded-3xl border border-brand/10 bg-cream p-8 md:p-10 shadow-soft reveal-from-left">
-            <h2 className="font-display text-2xl font-bold">Contact Information</h2>
+            <h2 className="font-display text-2xl font-bold uppercase">CONTACT INFORMATION</h2>
             <div className="mt-6 space-y-5 text-base">
               <p className="flex items-center gap-3">
                 <span className="text-2xl text-accent">☎</span> +91 98765 43210 / +91 12345 67890
@@ -56,7 +56,7 @@ export default function ContactPage() {
           </div>
 
           <form className="rounded-3xl border border-brand/10 bg-cream p-8 md:p-10 shadow-soft space-y-4 reveal-from-right" onSubmit={(e) => e.preventDefault()}>
-            <h2 className="font-display text-2xl font-bold">Send a Message</h2>
+            <h2 className="font-display text-2xl font-bold uppercase">SEND A MESSAGE</h2>
             <div>
               <label className="block text-xs font-semibold uppercase mb-1">Company / Factory Name</label>
               <input type="text" placeholder="Your Factory Name" className="w-full rounded-xl border border-brand/20 p-3 text-sm outline-none focus:border-accent" />

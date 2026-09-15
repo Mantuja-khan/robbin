@@ -5,14 +5,17 @@ import { DottedSquare } from "./DottedSquare";
 export function Footer() {
   return (
     <footer id="contact" className="relative overflow-hidden bg-primary text-primary-foreground">
-      <DottedSquare className="absolute top-12 left-6 text-cream/25" />
-      <DottedSquare className="absolute bottom-16 right-40 text-cream/20" />
+      {/* 4 White Dotted Squares placed at random locations */}
+      <DottedSquare className="absolute top-8 left-6 text-white/20 pointer-events-none z-10" />
+      <DottedSquare className="absolute top-10 right-28 text-white/20 pointer-events-none z-10" />
+      <DottedSquare className="absolute bottom-16 left-1/3 text-white/15 pointer-events-none z-10" />
+      <DottedSquare className="absolute bottom-12 right-10 text-white/20 pointer-events-none z-10" />
 
       <div className="footer-topline">
         <p className="script-note">Good Food<br />Stronger Industries</p>
         <p className="eyebrow">Nourishing People.<br />Powering Industries.</p>
       </div>
-      <img src="/food.jpg" alt="Freshly prepared industrial meal" className="footer-food" />
+      <img src="/thali-plate.jpg" alt="Thali Plate" className="footer-food !border-none !bg-transparent !shadow-none object-contain" />
       <div className="relative mx-auto grid max-w-7xl gap-9 px-5 pb-8 pt-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-[1.35fr_.9fr_1.05fr_1.05fr_1fr]">
         <div>
           <Brand />
@@ -80,7 +83,7 @@ export function Footer() {
       <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-5 text-center text-xs text-primary-foreground/65 sm:px-8 md:flex-row">
         <p>© 2026 Robin Hospitality Services. All Rights Reserved.</p>
         <p>Privacy Policy &nbsp; | &nbsp; Terms &amp; Conditions &nbsp; | &nbsp; Cookie Policy &nbsp; | &nbsp; Sitemap</p>
-        <p>Made with <span className="text-accent">♥</span> for a Healthier India</p>
+        <p>Designed by  <span className="text-accent"><a href="https://www.vmsolutiions.com" target="_blank">VM Solutiions</a></span>  </p>
       </div>
     </footer>
   );

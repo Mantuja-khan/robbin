@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -21,26 +21,43 @@ function TextWordReveal({
   stagger?: number;
   accentWords?: string[];
 }) {
-  const [mounted, setMounted] = useState(false);
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 60);
-    return () => clearTimeout(timer);
+    const el = containerRef.current;
+    if (!el) {
+      setInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   const words = text.split(" ");
   return (
-    <span className={className}>
+    <span ref={containerRef} className={className}>
       {words.map((word, idx) => {
-        const cleanWord = word.replace(/[^a-zA-Z&]/g, "");
+        const cleanWord = word.replace(/[^a-zA-Z&.]/g, "");
         const isAccent = accentWords.includes(word) || accentWords.includes(cleanWord);
         const delay = (baseDelay + idx * stagger).toFixed(2);
         return (
           <span key={idx} className="inline-block overflow-hidden align-top mr-[0.24em] pb-[0.08em]">
             <span
-              className={`inline-block transition-all duration-700 ease-out transform ${mounted
-                ? "opacity-100 translate-y-0 filter-none"
-                : "opacity-0 translate-y-8 blur-sm"
+              className={`inline-block transition-all duration-700 ease-out transform ${inView
+                  ? "opacity-100 translate-y-0 filter-none"
+                  : "opacity-0 translate-y-8 blur-sm"
                 } ${isAccent ? "text-accent" : ""}`}
               style={{
                 transitionDelay: `${delay}s`,
@@ -55,6 +72,93 @@ function TextWordReveal({
   );
 }
 
+function HeroVideoBackground() {
+  const [activeVideo, setActiveVideo] = useState<0 | 1>(0);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+  const isSwitchingRef = useRef(false);
+
+  const handleTimeUpdate1 = () => {
+    const v1 = video1Ref.current;
+    if (!v1 || activeVideo !== 0 || isSwitchingRef.current) return;
+
+    // Show first video for half its total duration
+    if (v1.duration && v1.duration > 0 && v1.currentTime >= v1.duration / 2) {
+      isSwitchingRef.current = true;
+      v1.pause();
+      v1.currentTime = 0;
+      setActiveVideo(1);
+
+      if (video2Ref.current) {
+        video2Ref.current.currentTime = 0;
+        const playPromise = video2Ref.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .catch(() => { })
+            .finally(() => {
+              isSwitchingRef.current = false;
+            });
+        } else {
+          isSwitchingRef.current = false;
+        }
+      } else {
+        isSwitchingRef.current = false;
+      }
+    }
+  };
+
+  const handleEnded2 = () => {
+    const v2 = video2Ref.current;
+    if (v2) {
+      v2.currentTime = 0;
+    }
+    setActiveVideo(0);
+    if (video1Ref.current) {
+      video1Ref.current.currentTime = 0;
+      video1Ref.current.play().catch(() => { });
+    }
+  };
+
+  useEffect(() => {
+    if (activeVideo === 0 && video1Ref.current) {
+      video1Ref.current.play().catch(() => { });
+    } else if (activeVideo === 1 && video2Ref.current) {
+      video2Ref.current.play().catch(() => { });
+    }
+  }, [activeVideo]);
+
+  return (
+    <div className="absolute inset-0 h-full w-full overflow-hidden">
+      <video
+        ref={video1Ref}
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        poster="/hero-chef.jpg"
+        onTimeUpdate={handleTimeUpdate1}
+        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${activeVideo === 0 ? "opacity-90 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+      >
+        <source src="/first.mp4" type="video/mp4" />
+      </video>
+
+      <video
+        ref={video2Ref}
+        muted
+        playsInline
+        preload="auto"
+        poster="/hero-chef.jpg"
+        onEnded={handleEnded2}
+        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${activeVideo === 1 ? "opacity-90 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+      >
+        <source src="/second.mp4" type="video/mp4" />
+      </video>
+    </div>
+  );
+}
+
 function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
@@ -65,16 +169,7 @@ function HeroSection() {
 
   return (
     <section id="top" className="relative min-h-[85vh] md:min-h-screen pt-20 sm:pt-24 pb-12 overflow-hidden bg-brand flex items-center">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/hero-chef.jpg"
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-90"
-      >
-        <source src="/video.mp4" type="video/mp4" />
-      </video>
+      <HeroVideoBackground />
       <div className="absolute inset-0 bg-gradient-to-r from-cream/80 via-cream/55 to-cream/10 md:from-cream/85 md:via-cream/60 md:to-transparent md:w-[60%] lg:w-[55%]" />
       {/* Top Dark Overlay for Navbar contrast */}
       <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-brand/90 via-brand/40 to-transparent pointer-events-none z-10" />
@@ -178,20 +273,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="relative section-shell bg-service">
+      <section id="services" className="relative section-shell bg-service py-20 sm:py-28">
         <DottedSquare className="absolute top-16 left-10 text-brand/20" />
         <DottedSquare className="absolute bottom-12 right-12 text-brand/20" />
 
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mx-auto max-w-3xl text-center reveal-on-scroll">
-            <p className="section-label justify-center">Our Services</p>
-            <h2 className="section-title">Quality Food. <span>Care Beyond Service.</span></h2>
-            <p className="body-copy mx-auto">We create healthier, happier workplaces with reliable catering and professional hospitality services tailored for factories and industrial environments.</p>
+            <p className="section-label justify-center text-amber-700 uppercase tracking-widest font-extrabold text-xs sm:text-sm">OUR SERVICES</p>
+            <h2 className="section-title text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-brand mt-3 leading-snug">
+              <TextWordReveal
+                text="QUALITY FOOD. CARE BEYOND SERVICE."
+                accentWords={["CARE", "BEYOND", "SERVICE.", "CARE.", "SERVICE"]}
+                baseDelay={0.1}
+                stagger={0.08}
+              />
+            </h2>
+            <p className="body-copy mx-auto mt-4 text-base sm:text-lg">We create healthier, happier workplaces with reliable catering and professional hospitality services tailored for factories and industrial environments.</p>
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-[1.1fr_1fr_1fr]">
-            <img src="/service-catering.jpg" alt="Robin chef preparing fresh meals" className="h-full min-h-[470px] w-full rounded-2xl object-cover reveal-from-left" />
-            <ServiceCard image="/service-catering.jpg" title="Catering Services" subtitle="Nutritious Meals for a Stronger Workforce" items={["Breakfast, Lunch & Dinner", "Customized Menu Planning", "Hygienic Food Preparation", "Large-Scale Meal Delivery"]} className="reveal-on-scroll reveal-delay-100" />
-            <ServiceCard image="/service-hospitality.jpg" title="Hospitality Services" subtitle="Clean | Safe | Comfortable" items={["Housekeeping & Cleaning", "Pantry & Dining Management", "Trained & Reliable Staff", "Hygiene & Safety Compliance"]} className="reveal-from-right reveal-delay-200" />
+          <div className="mt-14 grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+            <ServiceCard
+              image="/service-catering.jpg"
+              category="CATERING SERVICES"
+              title="CATERING SERVICES"
+              subtitle="Nutritious Meals for a Stronger Workforce"
+              items={["Breakfast, Lunch & Dinner", "Customized Menu Planning", "Hygienic Food Preparation", "Large-Scale Meal Delivery"]}
+              href="/services/catering"
+              className="reveal-on-scroll reveal-delay-100"
+            />
+            <ServiceCard
+              image="/service-hospitality.jpg"
+              category="HOSPITALITY SERVICES"
+              title="HOSPITALITY SERVICES"
+              subtitle="Clean | Safe | Comfortable"
+              items={["Housekeeping & Cleaning", "Pantry & Dining Management", "Trained & Reliable Staff", "Hygiene & Safety Compliance"]}
+              href="/services/hospitality"
+              className="reveal-on-scroll reveal-delay-200"
+            />
           </div>
         </div>
       </section>
@@ -236,6 +353,70 @@ export default function HomePage() {
   );
 }
 
-function ServiceCard({ image, title, subtitle, items, className = "" }: { image: string; title: string; subtitle: string; items: string[]; className?: string }) {
-  return <article className={`overflow-hidden rounded-2xl border border-brand/10 bg-cream shadow-soft ${className}`}><img src={image} alt="" className="h-44 w-full object-cover" /><div className="p-6"><h3 className="font-display text-2xl font-bold">{title}</h3><p className="mt-1 text-sm font-semibold text-brand/70">{subtitle}</p><ul className="mt-5 space-y-3 text-sm">{items.map(item => <li key={item} className="flex gap-2"><span className="text-accent">✓</span>{item}</li>)}</ul></div></article>;
+function ServiceCard({
+  image,
+  category,
+  title,
+  subtitle,
+  items,
+  href,
+  className = "",
+}: {
+  image: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  items: string[];
+  href: string;
+  className?: string;
+}) {
+  return (
+    <article
+      className={`group relative overflow-hidden rounded-3xl min-h-[460px] flex flex-col justify-end p-7 sm:p-8 border border-white/10 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:border-amber-400/50 ${className}`}
+    >
+      {/* Background Image */}
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+      />
+
+      {/* Dark Black Color Gradient Overlay for high legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 transition-opacity duration-500 group-hover:from-black/95 group-hover:via-black/85 group-hover:to-black/50" />
+      <div className="absolute inset-0 bg-black/30" />
+
+      {/* Content over the image */}
+      <div className="relative z-10 text-white">
+        <span className="inline-block rounded-full bg-accent/90 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cream mb-3 shadow-md">
+          {category}
+        </span>
+        <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-wide uppercase drop-shadow-md">
+          {title}
+        </h3>
+        <p className="mt-1.5 text-sm font-semibold text-amber-300 drop-shadow-sm">
+          {subtitle}
+        </p>
+
+        <ul className="mt-5 space-y-2.5 text-sm sm:text-base text-gray-100">
+          {items.map((item) => (
+            <li key={item} className="flex items-center gap-2.5">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-cream text-xs font-bold shadow-sm">
+                ✓
+              </span>
+              <span className="font-medium drop-shadow-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 pt-4 border-t border-white/20">
+          <a
+            href={href}
+            className="inline-flex items-center gap-2 text-sm font-bold text-amber-400 transition-colors duration-300 hover:text-white"
+          >
+            EXPLORE SERVICE <span className="transition-transform group-hover:translate-x-1.5">→</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  );
 }

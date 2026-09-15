@@ -113,10 +113,10 @@ export default function CareerPage() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl text-left">
             <p className="eyebrow text-amber-400 font-semibold tracking-widest uppercase mb-3">
-              <TextWordReveal text="Join Our Growing Family" baseDelay={0.1} />
+              <TextWordReveal text="JOIN OUR GROWING FAMILY" baseDelay={0.1} />
             </p>
-            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight">
-              <TextWordReveal text="Careers at Robin Hospitality" accentWords={["Hospitality"]} baseDelay={0.2} stagger={0.08} />
+            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight uppercase">
+              <TextWordReveal text="CAREERS AT ROBIN HOSPITALITY" accentWords={["HOSPITALITY"]} baseDelay={0.2} stagger={0.08} />
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal

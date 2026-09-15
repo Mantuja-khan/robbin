@@ -412,10 +412,9 @@
   height: 16rem;
   width: 16rem;
   border: none !important;
-  border-radius: 1.5rem;
-  object-fit: cover;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   background: transparent !important;
+  box-shadow: none !important;
+  object-fit: contain;
 }
 
 .social-link {

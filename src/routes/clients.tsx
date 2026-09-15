@@ -22,10 +22,10 @@ export default function ClientsPage() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl text-left">
             <p className="eyebrow text-amber-400 font-semibold tracking-widest uppercase mb-3">
-              <TextWordReveal text="Industrial Partnerships" baseDelay={0.1} />
+              <TextWordReveal text="INDUSTRIAL PARTNERSHIPS" baseDelay={0.1} />
             </p>
-            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight">
-              <TextWordReveal text="Our Esteemed Client" accentWords={["Client"]} baseDelay={0.2} stagger={0.08} />
+            <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight uppercase">
+              <TextWordReveal text="OUR ESTEEMED CLIENT" accentWords={["CLIENT"]} baseDelay={0.2} stagger={0.08} />
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal text="Trusted by Manufacturing & Industrial Leaders Across India for daily catering and dining operations." baseDelay={0.45} stagger={0.04} />
@@ -42,8 +42,8 @@ export default function ClientsPage() {
 
         <div className="relative z-10 text-center">
           <div className="reveal-on-scroll max-w-3xl mx-auto">
-            <p className="section-label justify-center">Partnership Excellence</p>
-            <h2 className="section-title text-brand">Powering <span className="text-accent">Industrial Leaders</span></h2>
+            <p className="section-label justify-center uppercase">PARTNERSHIP EXCELLENCE</p>
+            <h2 className="section-title text-brand uppercase">POWERING <span className="text-accent">INDUSTRIAL LEADERS</span></h2>
             <p className="body-copy mx-auto">
               We deliver high-capacity kitchen operations, daily balanced meals, and complete cafeteria management for global manufacturing plants.
             </p>
@@ -58,7 +58,7 @@ export default function ClientsPage() {
                   className="h-auto max-h-36 sm:max-h-44 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
                 />
                 <div className="mt-6 border-t border-brand/10 pt-6 text-center">
-                  <h3 className="font-display text-2xl font-extrabold text-brand">Balkrishna Industries Limited (BKT)</h3>
+                  <h3 className="font-display text-2xl font-extrabold text-brand uppercase">BALKRISHNA INDUSTRIES LIMITED (BKT)</h3>
                   <p className="mt-2 text-sm sm:text-base font-semibold text-accent">Leading Global Off-Highway Tire Manufacturer</p>
                   <p className="mt-3 text-xs sm:text-sm text-brand/75 max-w-md mx-auto leading-relaxed">
                     Robin Hospitality Services proudly powers BKT's manufacturing workforce with daily nutritious meals, strict hygienic catering, and premium workplace dining management.

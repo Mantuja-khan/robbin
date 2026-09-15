@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/75 to-transparent md:w-[65%]" />
         {/* Top Dark Overlay for Navbar contrast */}
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-brand/90 via-brand/40 to-transparent pointer-events-none z-10" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="max-w-2xl text-left">
             <p className="eyebrow text-amber-400 font-semibold tracking-widest uppercase mb-3">
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <section className="relative max-w-7xl mx-auto px-5 sm:px-8 py-16">
         <DottedSquare className="absolute top-8 right-6 text-brand/20" />
         <DottedSquare className="absolute bottom-12 left-10 text-brand/20" />
-        
+
         <div className="relative z-10">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="reveal-from-left">
