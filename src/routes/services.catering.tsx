@@ -1,4 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from '@tanstack/react-router'
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -13,7 +14,6 @@ export const Route = createFileRoute("/services/catering")({
 
 export function CateringServicePage() {
   useScrollReveal();
-
   const CATERING_FACILITIES = [
     {
       id: "industries",

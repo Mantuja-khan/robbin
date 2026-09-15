@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -6,11 +5,7 @@ import { DottedSquare } from "@/components/DottedSquare";
 import { WaveDivider } from "@/components/WaveDivider";
 import { TextWordReveal } from "@/components/TextWordReveal";
 
-export const Route = createFileRoute("/gallery")({
-  component: GalleryPage,
-});
-
-function GalleryPage() {
+export default function GalleryPage() {
   useScrollReveal();
 
   return (

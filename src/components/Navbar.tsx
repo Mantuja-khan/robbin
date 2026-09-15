@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export function Brand() {
@@ -12,8 +12,8 @@ export function Brand() {
 }
 
 export function Navbar() {
-  const routerState = useRouterState();
-  const currentPath = routerState.location.pathname;
+  const location = useLocation();
+  const currentPath = location.pathname;
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

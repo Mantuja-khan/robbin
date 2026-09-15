@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -6,10 +6,6 @@ import { DottedSquare } from "@/components/DottedSquare";
 import { WaveDivider } from "@/components/WaveDivider";
 import { TextWordReveal } from "@/components/TextWordReveal";
 import { ServiceInquiryForm } from "@/components/ServiceInquiryForm";
-
-export const Route = createFileRoute("/services/hospitality")({
-  component: HospitalityServicePage,
-});
 
 export function HospitalityServicePage() {
   useScrollReveal();

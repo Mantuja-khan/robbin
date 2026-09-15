@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Brand } from "./Navbar";
 import { DottedSquare } from "./DottedSquare";
 
@@ -9,22 +9,11 @@ export function Footer() {
       <DottedSquare className="absolute bottom-16 right-40 text-cream/20" />
 
       <div className="footer-topline">
-        <p className="script-note">
-          Good Food<br />Stronger Industries
-        </p>
-
-        <p className="eyebrow">
-          Nourishing People.<br />Powering Industries.
-        </p>
+        <p className="script-note">Good Food<br />Stronger Industries</p>
+        <p className="eyebrow">Nourishing People.<br />Powering Industries.</p>
       </div>
-
-      <img
-        src="/food.jpg"
-        alt="Freshly prepared industrial meal"
-        className="footer-food"
-      />
-
-      <div className="relative mx-auto grid max-w-7xl gap-9 px-5 pb-8 pt-14 sm:grid-cols-2 lg:grid-cols-[1.35fr_.9fr_1.05fr_1.05fr_1fr]">
+      <img src="/food.jpg" alt="Freshly prepared industrial meal" className="footer-food" />
+      <div className="relative mx-auto grid max-w-7xl gap-9 px-5 pb-8 pt-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-[1.35fr_.9fr_1.05fr_1.05fr_1fr]">
         <div>
           <Brand />
           <p className="mt-1 text-xs text-primary-foreground/70">Good Food • Healthy Workforce • Brighter Tomorrow</p>

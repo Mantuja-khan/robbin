@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -6,10 +5,6 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { DottedSquare } from "@/components/DottedSquare";
 import { WaveDivider } from "@/components/WaveDivider";
 import { TextWordReveal } from "@/components/TextWordReveal";
-
-export const Route = createFileRoute("/career")({
-  component: CareerPage,
-});
 
 interface JobOpening {
   id: string;
@@ -78,7 +73,7 @@ const JOB_OPENINGS: JobOpening[] = [
   },
 ];
 
-function CareerPage() {
+export default function CareerPage() {
   useScrollReveal();
   const [activeOpening, setActiveOpening] = useState<string>("accountant");
   const [selectedJob, setSelectedJob] = useState<string>("Accountant");

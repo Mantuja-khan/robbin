@@ -1,27 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Robin Hospitality Services | Industrial Catering" },
-      { name: "description", content: "Hygienic industrial catering, nutritious meals and workplace hospitality services for factories across India." },
-      { property: "og:title", content: "Robin Hospitality Services" },
-      { property: "og:description", content: "Good food for a healthier, happier and more productive workforce." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Home,
-});
-
-const clients = ["HERO", "BOSCH", "DAIKIN", "MARUTI SUZUKI", "DENSO", "HONDA", "PANASONIC", "LG", "MOTHERSON", "SAMSUNG", "TATA", "HYUNDAI"];
-
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { DottedSquare } from "@/components/DottedSquare";
 import { WaveDivider } from "@/components/WaveDivider";
+
+const clients = ["HERO", "BOSCH", "DAIKIN", "MARUTI SUZUKI", "DENSO", "HONDA", "PANASONIC", "LG", "MOTHERSON", "SAMSUNG", "TATA", "HYUNDAI"];
 
 function TextWordReveal({
   text,
@@ -134,7 +119,7 @@ function HeroSection() {
   );
 }
 
-function Home() {
+export default function HomePage() {
   useScrollReveal();
 
   return (
