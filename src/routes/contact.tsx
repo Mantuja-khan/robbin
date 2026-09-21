@@ -49,9 +49,24 @@ export default function ContactPage() {
               <p className="flex items-center gap-3">
                 <span className="text-2xl text-accent">✉</span> info@robbinhospitality.com
               </p>
-              <p className="flex items-start gap-3">
-                <span className="text-2xl text-accent">⌖</span> Bhiwadi, Rajasthan, India (Services Available Pan-India)
-              </p>
+              <div className="flex items-start gap-3">
+                <span className="text-2xl text-accent shrink-0 mt-0.5">⌖</span>
+                <div>
+                  <p className="font-semibold text-brand">Office Address:</p>
+                  <p className="text-brand/85 text-sm sm:text-base leading-relaxed mt-0.5">
+                    House No. 45, Sector 8, UIT Colony,<br />
+                    Bhiwadi, Dist. Alwar, Rajasthan, India
+                  </p>
+                  <p className="text-xs text-brand/60 mt-1">(Services Available Pan-India)</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 pt-3 border-t border-brand/15">
+                <span className="text-2xl text-accent">📜</span>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand/70">GST Number (GSTIN)</p>
+                  <p className="font-mono font-bold text-base text-brand tracking-wider">08DROPS3043B1ZQ</p>
+                </div>
+              </div>
             </div>
           </div>
 

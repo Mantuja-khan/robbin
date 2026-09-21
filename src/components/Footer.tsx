@@ -68,10 +68,11 @@ export function Footer() {
 
         <div>
           <h3 className="footer-title">Contact Us</h3>
-          <div className="mt-6 space-y-5 text-sm leading-relaxed text-primary-foreground/80">
-            <p className="footer-contact"><span>☎</span>+91 98765 43210<br />+91 12345 67890</p>
+          <div className="mt-6 space-y-4 text-sm leading-relaxed text-primary-foreground/80">
+            <p className="footer-contact"><span>☎</span>+91 98765 43210</p>
             <p className="footer-contact"><span>✉</span>info@robbinhospitality.com</p>
-            <p className="footer-contact"><span>⌖</span>Bhiwadi, Rajasthan, India<br />(Service Available Across India)</p>
+            <p className="footer-contact"><span>⌖</span>House No. 45, Sector 8, UIT Colony,<br />Bhiwadi, Dist. Alwar, Rajasthan, India<br /></p>
+            <p className="footer-contact"><span className="font-mono font-semibold tracking-wider text-amber-300">08DROPS3043B1ZQ</span></p>
           </div>
         </div>
 

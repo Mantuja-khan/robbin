@@ -49,19 +49,42 @@ export default function ClientsPage() {
             </p>
           </div>
 
-          <div className="mt-12 flex justify-center reveal-on-scroll reveal-delay-100">
-            <div className="group relative max-w-xl w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-12 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent">
+          <div className="mt-12 grid gap-8 md:grid-cols-2 max-w-5xl mx-auto reveal-on-scroll reveal-delay-100">
+            {/* Client 1: BKT */}
+            <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center">
-                <img 
-                  src="/bkt-logo.png" 
-                  alt="BKT Tires - Balkrishna Industries Limited" 
-                  className="h-auto max-h-36 sm:max-h-44 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
-                />
-                <div className="mt-6 border-t border-brand/10 pt-6 text-center">
-                  <h3 className="font-display text-2xl font-extrabold text-brand uppercase">BALKRISHNA INDUSTRIES LIMITED (BKT)</h3>
+                <div className="h-36 sm:h-44 flex items-center justify-center">
+                  <img 
+                    src="/bkt-logo.png" 
+                    alt="BKT Tires - Balkrishna Industries Limited" 
+                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                  />
+                </div>
+                <div className="mt-6 border-t border-brand/10 pt-6 text-center w-full">
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-brand uppercase">BALKRISHNA INDUSTRIES LIMITED (BKT)</h3>
                   <p className="mt-2 text-sm sm:text-base font-semibold text-accent">Leading Global Off-Highway Tire Manufacturer</p>
-                  <p className="mt-3 text-xs sm:text-sm text-brand/75 max-w-md mx-auto leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-sm text-brand/75 leading-relaxed">
                     Robin Hospitality Services proudly powers BKT's manufacturing workforce with daily nutritious meals, strict hygienic catering, and premium workplace dining management.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Client 2: RN Wire */}
+            <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col justify-between">
+              <div className="flex flex-col items-center justify-center">
+                <div className="h-36 sm:h-44 flex items-center justify-center">
+                  <img 
+                    src="/rw-wire-logo.png" 
+                    alt="RN Wire - Wire with Ultimate Precision" 
+                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                  />
+                </div>
+                <div className="mt-6 border-t border-brand/10 pt-6 text-center w-full">
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-brand uppercase">RN WIRE</h3>
+                  <p className="mt-2 text-sm sm:text-base font-semibold text-accent">Wire with Ultimate Precision</p>
+                  <p className="mt-3 text-xs sm:text-sm text-brand/75 leading-relaxed">
+                    Partnered with RN Wire to deliver top-quality industrial catering, hygienic daily meals, and seamless cafeteria solutions for their manufacturing facility.
                   </p>
                 </div>
               </div>

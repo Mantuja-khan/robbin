@@ -58,8 +58,12 @@ export default function AboutPage() {
                 We understand that a well-nourished workforce is the backbone of every successful industry. From bulk kitchen operations to cafeteria management, we deliver care in every plate.
               </p>
             </div>
-            <div className="reveal-from-right">
-              <img src="/about-delivery.png" alt="Robin Hospitality Delivery Fleet" className="w-full h-auto max-h-[320px] object-contain mix-blend-multiply" />
+            <div className="reveal-from-right flex justify-center items-center">
+              <img
+                src="/about-delivery.png"
+                alt="Robin Hospitality Delivery Fleet"
+                className="w-full h-auto max-h-[460px] sm:max-h-[520px] md:max-h-[580px] max-w-xl object-contain mix-blend-multiply transition-transform duration-500 hover:scale-105"
+              />
             </div>
           </div>
 
@@ -98,20 +102,25 @@ export default function AboutPage() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-left reveal-delay-100">
-              <span className="text-3xl">🛡</span>
-              <h3 className="font-bold text-xl mt-3">Hygienic Preparation</h3>
-              <p className="mt-2 text-sm text-brand/80">Strict compliance with FSSAI standards and food safety protocols.</p>
+              <span className="text-3xl">🥗</span>
+              <h3 className="font-bold text-xl mt-3">Quality food preparation</h3>
             </div>
             <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-on-scroll reveal-delay-200">
               <span className="text-3xl">🥗</span>
-              <h3 className="font-bold text-xl mt-3">Nutritious Menus</h3>
-              <p className="mt-2 text-sm text-brand/80">Balanced, energetic diet menus tailored for hard-working factory teams.</p>
+              <h3 className="font-bold text-xl mt-3">Proper food hygiene & cleanliness</h3>
             </div>
             <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-right reveal-delay-300">
-              <span className="text-3xl">⚡</span>
-              <h3 className="font-bold text-xl mt-3">Reliable Service</h3>
-              <p className="mt-2 text-sm text-brand/80">On-time meal delivery and professional cafeteria management.</p>
+              <span className="text-3xl">🥗</span>
+              <h3 className="font-bold text-xl mt-3">Professional cooking & service
+              </h3>
             </div>
+            <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-right reveal-delay-300">
+              <span className="text-3xl">🥗</span>
+              <h3 className="font-bold text-xl mt-3">✓ Daily menu rotation
+
+              </h3>
+            </div>
+
           </div>
         </div>
       </section>

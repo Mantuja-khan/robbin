@@ -135,16 +135,16 @@ export default function CareerPage() {
         <DottedSquare className="absolute top-8 right-8 text-brand/15" />
         <DottedSquare className="absolute bottom-10 left-10 text-brand/15" />
 
-        {/* Decorative background Thali image element (non-CTA) */}
+        {/* Decorative background Thali image element (non-CTA) - Fixed top positions so accordions don't shift them */}
         <img
           src="/thali-plate.jpg"
           alt="Indian Thali Platter background accent"
-          className="absolute top-1/4 -right-16 w-60 sm:w-80 h-auto opacity-20 pointer-events-none rounded-full blur-[0.5px]"
+          className="absolute top-28 -right-16 w-60 sm:w-80 h-auto opacity-20 pointer-events-none rounded-full blur-[0.5px]"
         />
         <img
           src="/thali-plate.jpg"
           alt="Indian Thali Platter background accent"
-          className="absolute bottom-10 -left-16 w-60 sm:w-80 h-auto opacity-20 pointer-events-none rounded-full blur-[0.5px]"
+          className="absolute top-[680px] -left-16 w-60 sm:w-80 h-auto opacity-20 pointer-events-none rounded-full blur-[0.5px]"
         />
 
         <div className="relative z-10 grid gap-12 lg:grid-cols-2">

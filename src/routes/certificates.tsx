@@ -38,21 +38,27 @@ export default function CertificatesPage() {
         <DottedSquare className="absolute top-8 right-8 text-brand/20" />
         <DottedSquare className="absolute bottom-8 left-10 text-brand/20" />
         
-        <div className="relative z-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll">
+        <div className="relative z-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-2xl border border-brand/10 bg-white/70 p-7 text-center shadow-soft reveal-on-scroll">
             <span className="text-4xl">📜</span>
-            <h3 className="mt-4 font-bold text-xl text-brand uppercase">FSSAI CERTIFIED</h3>
-            <p className="mt-2 text-sm text-brand/80">Full compliance with Food Safety and Standards Authority of India.</p>
+            <h3 className="mt-4 font-bold text-lg text-brand uppercase">FSSAI CERTIFIED</h3>
+            <p className="mt-2 text-xs sm:text-sm text-brand/80">Full compliance with Food Safety and Standards Authority of India.</p>
           </div>
-          <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll reveal-delay-150">
+          <div className="rounded-2xl border border-brand/10 bg-white/70 p-7 text-center shadow-soft reveal-on-scroll reveal-delay-100">
             <span className="text-4xl">🛡️</span>
-            <h3 className="mt-4 font-bold text-xl text-brand uppercase">ISO 22000 STANDARDS</h3>
-            <p className="mt-2 text-sm text-brand/80">Food Safety Management System certified operations.</p>
+            <h3 className="mt-4 font-bold text-lg text-brand uppercase">ISO 22000 STANDARDS</h3>
+            <p className="mt-2 text-xs sm:text-sm text-brand/80">Food Safety Management System certified operations.</p>
           </div>
-          <div className="rounded-2xl border border-brand/10 bg-white/70 p-8 text-center shadow-soft reveal-on-scroll reveal-delay-300">
+          <div className="rounded-2xl border border-brand/10 bg-white/70 p-7 text-center shadow-soft reveal-on-scroll reveal-delay-200">
+            <span className="text-4xl">🏛️</span>
+            <h3 className="mt-4 font-bold text-lg text-brand uppercase">GST REGISTERED</h3>
+            <p className="mt-2 text-xs sm:text-sm font-mono font-bold text-accent">08DROPS3043B1ZQ</p>
+            <p className="mt-1 text-xs text-brand/70">Bhiwadi, Rajasthan</p>
+          </div>
+          <div className="rounded-2xl border border-brand/10 bg-white/70 p-7 text-center shadow-soft reveal-on-scroll reveal-delay-300">
             <span className="text-4xl">🌱</span>
-            <h3 className="mt-4 font-bold text-xl text-brand uppercase">HYGIENE & ENVIRONMENTAL POLICY</h3>
-            <p className="mt-2 text-sm text-brand/80">Eco-friendly waste disposal and zero-contamination policy.</p>
+            <h3 className="mt-4 font-bold text-lg text-brand uppercase">HYGIENE & ECO POLICY</h3>
+            <p className="mt-2 text-xs sm:text-sm text-brand/80">Eco-friendly waste disposal and zero-contamination policy.</p>
           </div>
         </div>
       </section>

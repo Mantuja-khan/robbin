@@ -56,8 +56,8 @@ function TextWordReveal({
           <span key={idx} className="inline-block overflow-hidden align-top mr-[0.24em] pb-[0.08em]">
             <span
               className={`inline-block transition-all duration-700 ease-out transform ${inView
-                  ? "opacity-100 translate-y-0 filter-none"
-                  : "opacity-0 translate-y-8 blur-sm"
+                ? "opacity-100 translate-y-0 filter-none"
+                : "opacity-0 translate-y-8 blur-sm"
                 } ${isAccent ? "text-accent" : ""}`}
               style={{
                 transitionDelay: `${delay}s`,
@@ -234,8 +234,12 @@ export default function HomePage() {
             <p className="body-copy">Robin Hospitality Services is dedicated to providing hygienic, nutritious and great-tasting food to factories and industrial workplaces. We understand that a well-nourished workforce is the backbone of every successful industry.</p>
             <a href="/about" className="btn-primary mt-8">Know More About Us <span>→</span></a>
           </div>
-          <div className="relative mx-auto max-w-md w-full reveal-from-right">
-            <img src="/about-delivery.png" alt="Robin Hospitality Services delivery truck and team loading catering containers" className="h-auto max-h-[320px] md:max-h-[360px] w-full object-contain mix-blend-multiply transition-transform duration-500 hover:scale-105" />
+          <div className="relative mx-auto max-w-xl w-full flex justify-center items-center reveal-from-right">
+            <img
+              src="/about-delivery.png"
+              alt="Robin Hospitality Services delivery truck and team loading catering containers"
+              className="h-auto max-h-[460px] sm:max-h-[520px] md:max-h-[580px] w-full object-contain mix-blend-multiply transition-transform duration-500 hover:scale-105"
+            />
           </div>
         </div>
 
@@ -333,15 +337,34 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-12 flex justify-center reveal-on-scroll reveal-delay-100">
-            <div className="group relative max-w-xl w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-12 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent">
-              <div className="flex flex-col items-center justify-center">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 max-w-4xl mx-auto reveal-on-scroll reveal-delay-100">
+            {/* Client 1: BKT */}
+            <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-6 sm:p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col items-center justify-center">
+              <div className="h-32 sm:h-36 flex items-center justify-center">
                 <img
                   src="/bkt-logo.png"
                   alt="BKT Tires - Balkrishna Industries Limited"
-                  className="h-auto max-h-36 sm:max-h-44 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="max-h-24 sm:max-h-28 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 />
+              </div>
+              <div className="mt-4 border-t border-brand/10 pt-4 text-center w-full">
+                <h3 className="font-display text-base sm:text-lg font-bold text-brand uppercase">BALKRISHNA INDUSTRIES (BKT)</h3>
+                <p className="text-xs font-semibold text-accent mt-1">Leading Global Tire Manufacturer</p>
+              </div>
+            </div>
 
+            {/* Client 2: RN Wire */}
+            <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-6 sm:p-8 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col items-center justify-center">
+              <div className="h-32 sm:h-36 flex items-center justify-center">
+                <img
+                  src="/rw-wire-logo.png"
+                  alt="RAHUL WIRES - Wire with Ultimate Precision"
+                  className="max-h-24 sm:max-h-28 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-4 border-t border-brand/10 pt-4 text-center w-full">
+                <h3 className="font-display text-base sm:text-lg font-bold text-brand uppercase">RAHUL WIRES </h3>
+                <p className="text-xs font-semibold text-accent mt-1">Wire with Ultimate Precision</p>
               </div>
             </div>
           </div>
