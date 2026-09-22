@@ -116,7 +116,17 @@ export default function AboutPage() {
             </div>
             <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-right reveal-delay-300">
               <span className="text-3xl">🥗</span>
-              <h3 className="font-bold text-xl mt-3">✓ Daily menu rotation
+              <h3 className="font-bold text-xl mt-3"> Daily menu rotation
+              </h3>
+            </div>
+            <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-right reveal-delay-300">
+              <span className="text-3xl">🥗</span>
+              <h3 className="font-bold text-xl mt-3">Smooth canteen operations
+              </h3>
+            </div>
+            <div className="rounded-2xl border border-brand/10 p-6 bg-sage/30 reveal-from-right reveal-delay-300">
+              <span className="text-3xl">🥗</span>
+              <h3 className="font-bold text-xl mt-3">Kitchen & dining-area management
 
               </h3>
             </div>

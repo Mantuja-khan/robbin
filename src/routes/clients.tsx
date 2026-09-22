@@ -11,7 +11,7 @@ export default function ClientsPage() {
   return (
     <main className="min-h-screen bg-cream text-brand">
       <Navbar />
-      
+
       {/* Top CTA Header Banner with Custom Clients Image */}
       <section className="relative min-h-[48vh] sm:min-h-[52vh] flex items-center overflow-hidden bg-brand text-cream pt-32 pb-24 px-5 sm:px-8">
         <img src="/clients-top-banner.png" alt="Trusted by Leading Industries - Global Partnerships" className="absolute inset-0 h-full w-full object-cover object-center" />
@@ -54,10 +54,10 @@ export default function ClientsPage() {
             <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center">
                 <div className="h-36 sm:h-44 flex items-center justify-center">
-                  <img 
-                    src="/bkt-logo.png" 
-                    alt="BKT Tires - Balkrishna Industries Limited" 
-                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                  <img
+                    src="/bkt-logo.png"
+                    alt="BKT Tires - Balkrishna Industries Limited"
+                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="mt-6 border-t border-brand/10 pt-6 text-center w-full">
@@ -74,10 +74,10 @@ export default function ClientsPage() {
             <div className="group relative w-full overflow-hidden rounded-3xl border border-brand/15 bg-white/95 p-8 sm:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-accent flex flex-col justify-between">
               <div className="flex flex-col items-center justify-center">
                 <div className="h-36 sm:h-44 flex items-center justify-center">
-                  <img 
-                    src="/rw-wire-logo.png" 
-                    alt="RN Wire - Wire with Ultimate Precision" 
-                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105" 
+                  <img
+                    src="/rw-wire-logo.png"
+                    alt="Rahul Wires - Wire with Ultimate Precision"
+                    className="max-h-32 sm:max-h-36 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="mt-6 border-t border-brand/10 pt-6 text-center w-full">
