@@ -124,7 +124,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section with Light Background & Wave Divider */}
       <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white via-cream/90 to-white text-brand">
         <WaveDivider position="top" fillColor="fill-cream" />
