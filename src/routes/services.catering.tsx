@@ -18,10 +18,10 @@ export function CateringServicePage() {
     {
       id: "industries",
       title: "INDUSTRIES",
-      subtitle: "High-Powered Industrial Cafeteria Solutions",
+      subtitle: "High-Powered Industrial Dining & Meal Solutions",
       image: "/catering-industries.jpg",
       description:
-        "High powered Industrial settings require equally healthy meal options that are also an excellent cost-cutting option with easy operation process and go well with the work environment. Our Industrial Cafeteria provides a balanced meal that boosts employees energy, transferring into better productivity. Apart from the nutritional food, we handpick elements that can add local flavours, making the food tastier and also give vibes of homemade food.",
+        "High powered Industrial settings require equally healthy meal options that are also an excellent cost-cutting option with easy operation process and go well with the work environment. Our Industrial Catering provides a balanced meal that boosts employees energy, transferring into better productivity. Apart from the nutritional food, we handpick elements that can add local flavours, making the food tastier and also give vibes of homemade food.",
     },
     {
       id: "corporate-events",
@@ -34,18 +34,10 @@ export function CateringServicePage() {
     {
       id: "healthcare",
       title: "HEALTH CARE SERVICES",
-      subtitle: "Hygienic & Patient-Nutritious Hospital Cafeterias",
+      subtitle: "Hygienic & Patient-Nutritious Hospital Catering",
       image: "/catering-healthcare.jpg",
       description:
-        "Did we tell you that we specialize in managing Hospital Cafeterias too? We provide custom-food as per the nutritious requirement of the patient. Our hygiene and quality hospital cafeteria operations have made us earn respect and projects more than our competitors.",
-    },
-    {
-      id: "cafeteria-snacks",
-      title: "CAFETERIA / SNACKS BARS",
-      subtitle: "Exclusive Non-Repetitive 30-Day Menus",
-      image: "/catering-cafeteria.jpg",
-      description:
-        "With our capable team alongside us, we can manage the cafeteria at any given place. Be it a fast-paced corporate company, an educational institute, or a high-powered industrial venue. We offer an exclusive non-repetitive 30 days menu that can even be customized as per the client’s budget & requirement.",
+        "Did we tell you that we specialize in Hospital Catering too? We provide custom-food as per the nutritious requirement of the patient. Our hygiene and quality hospital catering operations have made us earn respect and projects more than our competitors.",
     },
     {
       id: "institution",
@@ -82,7 +74,7 @@ export function CateringServicePage() {
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal
-                text="Hygienic, nutritious, and delicious meal solutions for factory workforces, corporate events, healthcare centers, snack bars & educational institutions."
+                text="Hygienic, nutritious, and delicious meal solutions for factory workforces, corporate events, healthcare centers & educational institutions."
                 baseDelay={0.45}
                 stagger={0.04}
               />
@@ -117,12 +109,12 @@ export function CateringServicePage() {
             SERVING QUALITY FOOD WITH ENTHUSIASM & COMMITMENT
           </h2>
           <p className="mt-6 text-brand/85 text-lg sm:text-xl leading-relaxed font-medium">
-            A team of enthusiastic and dedicated staff members that are committed in making your industry’s workplace more efficient, events more exciting, hospitals more hygienic, cafeterias more exclusive, and the next generation of India healthier with the love of serving food and exceptional customer service capabilities.
+            A team of enthusiastic and dedicated staff members that are committed in making your industry’s workplace more efficient, events more exciting, hospitals more hygienic, and the next generation of India healthier with the love of serving food and exceptional customer service capabilities.
           </p>
         </div>
       </section>
 
-      {/* 5 Catering Facilities Deep-Dive Section - FREE OF BOXES & SQUARE UNROUNDED IMAGES */}
+      {/* 4 Catering Facilities Deep-Dive Section - FREE OF BOXES & SQUARE UNROUNDED IMAGES */}
       <section className="relative max-w-7xl mx-auto px-5 sm:px-8 py-12 space-y-20">
         {/* Decorative background Thali element */}
         <img
@@ -173,7 +165,6 @@ export function CateringServicePage() {
             "Industries",
             "Corporate Events",
             "Health Care Services",
-            "Cafeteria / Snacks Bars",
             "Institution",
           ]}
         />

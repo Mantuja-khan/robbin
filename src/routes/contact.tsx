@@ -44,7 +44,7 @@ export default function ContactPage() {
             <h2 className="font-display text-2xl font-bold uppercase">CONTACT INFORMATION</h2>
             <div className="mt-6 space-y-5 text-base">
               <p className="flex items-center gap-3">
-                <span className="text-2xl text-accent">☎</span> +91 98765 43210 / +91 12345 67890
+                <span className="text-2xl text-accent">☎</span> <a href="tel:+919799277354" className="hover:text-accent transition-colors">+91 97992 77354</a> / <a href="tel:+918766632286" className="hover:text-accent transition-colors">+91 87666 32286</a>
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-2xl text-accent">✉</span> info@robbinhospitality.com

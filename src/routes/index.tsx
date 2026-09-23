@@ -184,7 +184,7 @@ function HeroSection() {
           </p>
 
           <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.04] sm:text-6xl lg:text-7xl drop-shadow-sm">
-            <TextWordReveal text="ROBIN HOSPITALITY & SERVICES" accentWords={["&", "SERVICES"]} baseDelay={0.25} stagger={0.08} />
+            <TextWordReveal text="ROBIN HOSPITALITY SERVICES" accentWords={["&", "SERVICES"]} baseDelay={0.25} stagger={0.08} />
           </h1>
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-brand/90 sm:text-xl font-medium">
@@ -287,7 +287,7 @@ export default function HomePage() {
             <h2 className="section-title text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-brand mt-3 leading-snug">
               <TextWordReveal
                 text="QUALITY FOOD. CARE BEYOND SERVICE."
-                accentWords={["CARE", "BEYOND", "SERVICE.", "CARE.", "SERVICE"]}
+                accentWords={["QUALITY FOOD", "CARE", "BEYOND", "SERVICE"]}
                 baseDelay={0.1}
                 stagger={0.08}
               />

@@ -25,14 +25,14 @@ export default function AboutPage() {
               <TextWordReveal text="Nourishing Teams • Powering Factories" baseDelay={0.1} />
             </p>
             <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-white drop-shadow-md leading-tight">
-              <TextWordReveal text="About Robin Hospitality" accentWords={["Hospitality"]} baseDelay={0.2} stagger={0.08} />
+              <TextWordReveal text="ABOUT HOSPITALITY SERVICES " accentWords={["HOSPITALITY"]} baseDelay={0.2} stagger={0.08} />
             </h1>
             <p className="mt-4 text-cream/95 text-lg sm:text-xl font-medium leading-relaxed max-w-xl">
               <TextWordReveal text="Delivering Excellence in Industrial Catering & Workplace Hospitality across India." baseDelay={0.5} stagger={0.04} />
             </p>
             <div className="mt-8 flex flex-wrap gap-4 animate-hero-fade" style={{ animationDelay: "0.85s" }}>
               <a href="/services" className="btn-primary uppercase tracking-wider text-xs px-6 py-3">Explore Services <span>→</span></a>
-              <a href="/contact" className="btn-outline text-white border-white/60 hover:bg-white hover:text-brand uppercase tracking-wider text-xs px-6 py-3">Contact Us</a>
+              <a href="/contact" className="btn-outline text-white border-white/60 hover:bg-black hover:text-white uppercase tracking-wider text-xs px-6 py-3">Contact Us</a>
             </div>
           </div>
         </div>
