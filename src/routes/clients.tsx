@@ -81,10 +81,10 @@ export default function ClientsPage() {
                   />
                 </div>
                 <div className="mt-6 border-t border-brand/10 pt-6 text-center w-full">
-                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-brand uppercase">RN WIRE</h3>
+                  <h3 className="font-display text-xl sm:text-2xl font-extrabold text-brand uppercase">RAHUL WIRES</h3>
                   <p className="mt-2 text-sm sm:text-base font-semibold text-accent">Wire with Ultimate Precision</p>
                   <p className="mt-3 text-xs sm:text-sm text-brand/75 leading-relaxed">
-                    Partnered with RN Wire to deliver top-quality industrial catering, hygienic daily meals, and seamless cafeteria solutions for their manufacturing facility.
+                    Partnered with Rahul Wires to deliver top-quality industrial catering, hygienic daily meals, and seamless cafeteria solutions for their manufacturing facility.
                   </p>
                 </div>
               </div>

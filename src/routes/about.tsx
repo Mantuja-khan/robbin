@@ -140,7 +140,7 @@ export default function AboutPage() {
         <img src="/food.jpg" alt="Industrial catering food" className="absolute inset-0 h-full w-full object-cover opacity-10 object-center" />
         <div className="relative z-10 max-w-5xl mx-auto text-center px-5 sm:px-8 reveal-on-scroll">
           <p className="section-label justify-center">Work With Us</p>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-brand mt-2">Partner With Robin Hospitality</h2>
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-brand mt-2">Being a customer of robin hospitality services </h2>
           <p className="mt-4 text-brand/80 text-lg max-w-2xl mx-auto">Let us manage your industrial cafeteria so your team stays energized and productive every day.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a href="/contact" className="btn-primary">Contact Us Today <span>→</span></a>

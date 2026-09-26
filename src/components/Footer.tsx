@@ -82,7 +82,7 @@ export function Footer() {
 
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-5 text-center text-xs text-primary-foreground/65 sm:px-8 md:flex-row">
-        <p>© 2026 Robin Hospitality Services. All Rights Reserved.</p>
+        <p>© 2011 Robin Hospitality Services. All Rights Reserved.</p>
         <p>Privacy Policy &nbsp; | &nbsp; Terms &amp; Conditions &nbsp; | &nbsp; Cookie Policy &nbsp; | &nbsp; Sitemap</p>
         <p>Designed by  <span className="text-accent"><a href="https://www.vmsolutiions.com" target="_blank">VM Solutiions</a></span>  </p>
       </div>

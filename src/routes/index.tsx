@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { DottedSquare } from "@/components/DottedSquare";
 import { WaveDivider } from "@/components/WaveDivider";
+import { BrandShowcase } from "@/components/BrandShowcase";
 
 const clients = ["HERO", "BOSCH", "DAIKIN", "MARUTI SUZUKI", "DENSO", "HONDA", "PANASONIC", "LG", "MOTHERSON", "SAMSUNG", "TATA", "HYUNDAI"];
 
@@ -158,55 +159,143 @@ function HeroVideoBackground() {
     </div>
   );
 }
+const heroSlides = [
+  {
+    eyebrow: "PIONEERS IN INDUSTRIAL HOSPITALITY",
+    title: "ROBIN HOSPITALITY SERVICES",
+    accentWords: ["&", "SERVICES", "HOSPITALITY"],
+    subtitle:
+      "We take tremendous pride in offering the best quality services that result in everlasting partnership with our customers.",
+    primaryCta: { text: "Our Services →", href: "/services" },
+    secondaryCta: { text: "Contact Us", href: "/contact" },
+    scriptNote1: "Good Food",
+    scriptNote2: "Stronger Teams",
+  },
+  {
+    eyebrow: "HYGIENIC & NUTRITIOUS DAILY DINING",
+    title: "INDUSTRIAL CATERING SERVICES",
+    accentWords: ["CATERING", "SERVICES", "INDUSTRIAL"],
+    subtitle:
+      "Delicious, balanced, and hygienic meals prepared daily for manufacturing units, industrial workers, and corporate offices.",
+    primaryCta: { text: "Explore Catering →", href: "/services/catering" },
+    secondaryCta: { text: "Request Quote", href: "/contact" },
+    scriptNote1: "Healthy Meals",
+    scriptNote2: "Happy Workforce",
+  },
+  {
+    eyebrow: "COMPREHENSIVE FACILITY MANAGEMENT",
+    title: "FACILITY & HOUSEKEEPING SERVICES",
+    accentWords: ["FACILITY", "HOUSEKEEPING", "SERVICES"],
+    subtitle:
+      "Professional housekeeping, pantry management, and trained hospitality staff creating clean, safe, and comfortable workspaces.",
+    primaryCta: { text: "Explore Hospitality →", href: "/services/hospitality" },
+    secondaryCta: { text: "Know More", href: "/about" },
+    scriptNote1: "Clean Spaces",
+    scriptNote2: "Pure Quality",
+  },
+];
 
 function HeroSection() {
   const [mounted, setMounted] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-switch hero content every 6.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const slide = heroSlides[currentSlide] || heroSlides[0];
+
   return (
-    <section id="top" className="relative min-h-[85vh] md:min-h-screen pt-20 sm:pt-24 pb-12 overflow-hidden bg-brand flex items-center">
+    <section id="top" className="relative min-h-[88vh] md:min-h-screen pt-20 sm:pt-24 pb-16 overflow-hidden bg-brand flex items-center">
       <HeroVideoBackground />
       <div className="absolute inset-0 bg-gradient-to-r from-cream/80 via-cream/55 to-cream/10 md:from-cream/85 md:via-cream/60 md:to-transparent md:w-[60%] lg:w-[55%]" />
       {/* Top Dark Overlay for Navbar contrast */}
       <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-brand/90 via-brand/40 to-transparent pointer-events-none z-10" />
+
       <div className="relative z-10 mx-auto flex max-w-7xl items-start md:items-center px-5 py-4 sm:px-8 w-full">
         <div className="max-w-2xl pt-2 sm:pt-4">
-          <p
-            className={`eyebrow transition-all duration-700 ease-out transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            style={{ transitionDelay: "0.15s" }}
-          >
-            Nourishing people. Powering industries.
-          </p>
 
-          <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.04] sm:text-6xl lg:text-7xl drop-shadow-sm">
-            <TextWordReveal text="ROBIN HOSPITALITY SERVICES" accentWords={["&", "SERVICES"]} baseDelay={0.25} stagger={0.08} />
-          </h1>
-
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-brand/90 sm:text-xl font-medium">
-            <TextWordReveal text="Delivered to factories, for a healthier and more productive tomorrow." baseDelay={0.65} stagger={0.04} />
-          </p>
-
-          <div
-            className={`mt-6 flex flex-wrap gap-3 transition-all duration-700 ease-out transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            style={{ transitionDelay: "1.1s" }}
-          >
-            <a href="/services" className="btn-primary">Our Services <span>→</span></a>
-            <a href="/contact" className="btn-outline">Contact Us</a>
+          {/* Eyebrow */}
+          <div key={`eyebrow-${currentSlide}`} className="min-h-[28px] flex items-center">
+            <span className="inline-block font-bold text-xs sm:text-sm uppercase tracking-widest text-amber-700 bg-amber-500/15 border border-amber-600/30 px-3 py-1 rounded-full animate-fadeIn">
+              {slide.eyebrow}
+            </span>
           </div>
 
-          <p
-            className={`script-note mt-7 transition-all duration-700 ease-out transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-            style={{ transitionDelay: "1.25s" }}
+          {/* Dynamic Title */}
+          <h1
+            key={`title-${currentSlide}`}
+            className="mt-4 font-display text-4xl font-extrabold leading-[1.04] sm:text-6xl lg:text-7xl drop-shadow-sm min-h-[110px] sm:min-h-[140px] flex items-center"
           >
-            Good Food<br />Stronger Teams <span className="script-swoop" />
+            <TextWordReveal
+              text={slide.title}
+              accentWords={slide.accentWords}
+              baseDelay={0.1}
+              stagger={0.07}
+            />
+          </h1>
+
+          {/* Dynamic Subtitle */}
+          <p
+            key={`sub-${currentSlide}`}
+            className="mt-3 max-w-xl text-base leading-relaxed text-brand/90 sm:text-xl font-medium min-h-[64px] sm:min-h-[80px]"
+          >
+            <TextWordReveal
+              text={slide.subtitle}
+              baseDelay={0.35}
+              stagger={0.03}
+            />
           </p>
+
+          {/* Buttons & Indicators */}
+          <div
+            className={`mt-6 flex flex-wrap items-center gap-4 transition-all duration-700 ease-out transform ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+            style={{ transitionDelay: "0.5s" }}
+          >
+            <a href={slide.primaryCta.href} className="btn-primary">
+              {slide.primaryCta.text}
+            </a>
+            <a href={slide.secondaryCta.href} className="btn-outline">
+              {slide.secondaryCta.text}
+            </a>
+
+            {/* Slide Navigation Dots / Indicators */}
+            <div className="flex items-center gap-2 ml-2 sm:ml-4 bg-brand/10 backdrop-blur-md p-1.5 rounded-full border border-brand/15">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${currentSlide === idx
+                    ? "w-7 bg-brand shadow-sm"
+                    : "w-2.5 bg-brand/30 hover:bg-brand/60"
+                    }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Dynamic Script Note */}
+          <div
+            key={`note-${currentSlide}`}
+            className={`script-note mt-7 transition-all duration-700 ease-out transform animate-fadeIn ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+          >
+            {slide.scriptNote1}
+            <br />
+            {slide.scriptNote2} <span className="script-swoop" />
+          </div>
         </div>
       </div>
       <WaveDivider position="bottom" fillColor="fill-cream" />
@@ -276,6 +365,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Interactive Brand / Logo Showcase Section */}
+      <BrandShowcase />
 
       <section id="services" className="relative section-shell bg-service py-20 sm:py-28">
         <DottedSquare className="absolute top-16 left-10 text-brand/20" />
