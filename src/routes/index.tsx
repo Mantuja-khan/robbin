@@ -73,95 +73,21 @@ function TextWordReveal({
   );
 }
 
-function HeroVideoBackground() {
-  const [activeVideo, setActiveVideo] = useState<0 | 1>(0);
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
-  const isSwitchingRef = useRef(false);
-
-  const handleTimeUpdate1 = () => {
-    const v1 = video1Ref.current;
-    if (!v1 || activeVideo !== 0 || isSwitchingRef.current) return;
-
-    // Show first video for half its total duration
-    if (v1.duration && v1.duration > 0 && v1.currentTime >= v1.duration / 2) {
-      isSwitchingRef.current = true;
-      v1.pause();
-      v1.currentTime = 0;
-      setActiveVideo(1);
-
-      if (video2Ref.current) {
-        video2Ref.current.currentTime = 0;
-        const playPromise = video2Ref.current.play();
-        if (playPromise !== undefined) {
-          playPromise
-            .catch(() => { })
-            .finally(() => {
-              isSwitchingRef.current = false;
-            });
-        } else {
-          isSwitchingRef.current = false;
-        }
-      } else {
-        isSwitchingRef.current = false;
-      }
-    }
-  };
-
-  const handleEnded2 = () => {
-    const v2 = video2Ref.current;
-    if (v2) {
-      v2.currentTime = 0;
-    }
-    setActiveVideo(0);
-    if (video1Ref.current) {
-      video1Ref.current.currentTime = 0;
-      video1Ref.current.play().catch(() => { });
-    }
-  };
-
-  useEffect(() => {
-    if (activeVideo === 0 && video1Ref.current) {
-      video1Ref.current.play().catch(() => { });
-    } else if (activeVideo === 1 && video2Ref.current) {
-      video2Ref.current.play().catch(() => { });
-    }
-  }, [activeVideo]);
-
+function HeroImageBackground() {
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
-      <video
-        ref={video1Ref}
-        autoPlay
-        muted
-        playsInline
-        preload="auto"
-        poster="/hero-chef.jpg"
-        onTimeUpdate={handleTimeUpdate1}
-        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${activeVideo === 0 ? "opacity-90 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-      >
-        <source src="/first.mp4" type="video/mp4" />
-      </video>
-
-      <video
-        ref={video2Ref}
-        muted
-        playsInline
-        preload="auto"
-        poster="/hero-chef.jpg"
-        onEnded={handleEnded2}
-        className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${activeVideo === 1 ? "opacity-90 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-      >
-        <source src="/second.mp4" type="video/mp4" />
-      </video>
+      <img
+        src="/hero-team.jpg"
+        alt="Robin Hospitality Dedicated Team"
+        className="h-full w-full object-cover object-[70%_center] md:object-[60%_center] lg:object-center"
+      />
     </div>
   );
 }
+
 const heroSlides = [
   {
-    eyebrow: "PIONEERS IN INDUSTRIAL HOSPITALITY",
+    eyebrow: "WELCOME TO ",
     title: "ROBIN HOSPITALITY SERVICES",
     accentWords: ["&", "SERVICES", "HOSPITALITY"],
     subtitle:
@@ -217,8 +143,9 @@ function HeroSection() {
 
   return (
     <section id="top" className="relative min-h-[88vh] md:min-h-screen pt-20 sm:pt-24 pb-16 overflow-hidden bg-brand flex items-center">
-      <HeroVideoBackground />
-      <div className="absolute inset-0 bg-gradient-to-r from-cream/80 via-cream/55 to-cream/10 md:from-cream/85 md:via-cream/60 md:to-transparent md:w-[60%] lg:w-[55%]" />
+      <HeroImageBackground />
+      {/* Soft gradient overlay for text readability on left while highlighting the team photo */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cream/95 via-cream/80 to-cream/25 md:from-cream/95 md:via-cream/65 md:to-transparent md:w-[62%] lg:w-[54%] z-[1]" />
       {/* Top Dark Overlay for Navbar contrast */}
       <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-brand/90 via-brand/40 to-transparent pointer-events-none z-10" />
 

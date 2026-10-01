@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 const defaultItems = [
   {
@@ -14,10 +14,10 @@ const defaultItems = [
   {
     image: "/vikash-gupta.jpg",
     thumbnail: "/vikash-gupta.jpg",
-    eyebrow: "OPERATIONS & FOOD SERVICE",
+    eyebrow: "LEADERSHIP & VISION",
     titlePrefix: "Vikash",
     titleAccent: "Gupta",
-    role: "GENERAL MANAGER — OPERATIONS",
+    role: "GM— OPERATIONS",
     content:
       "A results-driven and highly experienced Hospitality & Food Service Operations Professional with 18+ years of industry experience, specializing in end-to-end operations management, food service, catering, kitchen operations, client management, and team leadership. A professionally trained hospitality management graduate from Culinary Institute of India, Durgapur, West Bengal, with extensive hands-on experience in managing large-scale food service operations and delivering consistent standards of quality, hygiene, food safety, service excellence, and operational efficiency.",
   },
@@ -26,7 +26,6 @@ const defaultItems = [
 export function BrandShowcase({ items = defaultItems }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const timerRef = useRef(null);
 
   const activeItem = items[activeIndex] || items[0];
   const inactiveIndex = activeIndex === 0 ? 1 : 0;
@@ -41,23 +40,6 @@ export function BrandShowcase({ items = defaultItems }) {
     }, 450);
   };
 
-  // Automatic 7-second timer with reset on user interaction
-  useEffect(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-
-    timerRef.current = setInterval(() => {
-      setIsAnimating(true);
-      setActiveIndex((prev) => (prev === 0 ? 1 : 0));
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 450);
-    }, 7000);
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [activeIndex]);
-
   return (
     <section className="relative py-14 sm:py-20 bg-gradient-to-b from-cream via-white to-cream overflow-hidden">
       {/* Decorative ambient background elements */}
@@ -66,20 +48,19 @@ export function BrandShowcase({ items = defaultItems }) {
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* LEFT SIDE - Compact Large Circular Display showing upper half from top */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
             <div className="relative">
-              
+
               {/* Outer Decorative Gold Halo Ring */}
               <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-amber-300/40 pointer-events-none" />
               <div className="absolute -top-2 -left-2 h-3.5 w-3.5 rounded-full bg-amber-400 shadow-sm pointer-events-none" />
 
               {/* LARGE CIRCULAR IMAGE (Half image showing from top) */}
               <div
-                className={`relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full bg-white p-2 sm:p-2.5 shadow-2xl border-4 border-white transition-all duration-500 ease-out overflow-hidden ${
-                  isAnimating ? "scale-95 opacity-80" : "scale-100 opacity-100"
-                }`}
+                className={`relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full bg-white p-2 sm:p-2.5 shadow-2xl border-4 border-white transition-all duration-500 ease-out overflow-hidden ${isAnimating ? "scale-95 opacity-80" : "scale-100 opacity-100"
+                  }`}
                 style={{
                   boxShadow:
                     "0 20px 40px -10px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(212, 164, 58, 0.2)",
@@ -127,20 +108,27 @@ export function BrandShowcase({ items = defaultItems }) {
 
             </div>
 
-            {/* Auto Switch 7s Timer Status */}
-            <div className="mt-7 flex items-center gap-2">
-              <div className="h-1.5 w-14 bg-brand/10 rounded-full overflow-hidden">
-                <div
-                  key={activeIndex}
-                  className="h-full bg-accent rounded-full"
-                  style={{
-                    animation: "progressAnim 7s linear infinite",
+            {/* Switch Profile Indicator / Hint */}
+            <div className="mt-5 flex items-center gap-3">
+              {items.map((item, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => {
+                    if (activeIndex !== idx && !isAnimating) {
+                      setIsAnimating(true);
+                      setActiveIndex(idx);
+                      setTimeout(() => setIsAnimating(false), 450);
+                    }
                   }}
-                />
-              </div>
-              <span className="text-[10px] uppercase font-semibold text-brand/50 tracking-wider">
-                Auto-switch (7s)
-              </span>
+                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${activeIndex === idx
+                      ? "bg-brand text-cream shadow-sm"
+                      : "bg-brand/10 text-brand/70 hover:bg-brand/20"
+                    }`}
+                >
+                  {item.titlePrefix} {item.titleAccent}
+                </button>
+              ))}
             </div>
           </div>
 
@@ -182,13 +170,6 @@ export function BrandShowcase({ items = defaultItems }) {
 
         </div>
       </div>
-
-      <style>{`
-        @keyframes progressAnim {
-          0% { width: 0%; }
-          100% { width: 100%; }
-        }
-      `}</style>
     </section>
   );
 }
